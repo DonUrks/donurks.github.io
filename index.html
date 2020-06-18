@@ -1,0 +1,39 @@
+---
+layout: default
+title: Home
+---
+
+{% for post in paginator.posts %}
+
+	<div style="margin-bottom: 64px;">
+		<h2><a href="{{ post.url  | relative_url }}">{{ post.title }}</a></h2>
+		<p>
+			<span>
+				<i class="fa fa-calendar" aria-hidden="true"></i>
+				<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
+			</span>
+		</p>
+
+		{% if post.customexcerpt %}
+			{{post.customexcerpt | strip_html | truncatewords:50}}
+		{% else %}
+			{{ post.content | strip_html | truncatewords:50 }}
+		{% endif %}
+		
+		<div>
+			<a href="{{ post.url | relative_url }}">Continue reading...</a>
+		</div>
+	</div>
+	
+{% endfor %}
+
+<nav style="margin-bottom: 64px;">
+	{% if paginator.total_pages > 1 %}
+		{% if paginator.next_page %}					
+			<a class="btn btn-outline-primary" href="{{ paginator.next_page_path | relative_url }}">Older</a>
+		{% endif %}
+		{% if paginator.previous_page %}
+			<a class="btn btn-outline-primary" href="{{ paginator.previous_page_path | relative_url }}">Newer</a>
+		{% endif %}
+	{% endif %}
+</nav> 

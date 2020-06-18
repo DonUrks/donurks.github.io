@@ -1,0 +1,34 @@
+title: donurks.de
+description: "developer, gamer, not a robot"
+url:  "https://www.donurks.de"
+baseurl: "/"
+permalink: /:year/:month/:day/:title:output_ext
+
+plugins: [jekyll-paginate, jekyll-feed, jekyll-seo-tag]
+
+paginate: 3
+paginate_path: "/page:num/"
+
+#SEO
+twitter:
+  username: donurks
+  card: summary
+logo: /assets/img/logo.jpg
+social:
+  links:
+    - https://twitter.com/DonUrks
+    - https://www.github.com/DonUrks
+lang: en_US
+
+#Highlighter
+kramdown:
+  input:          GFM
+  syntax_highlighter: rouge
+
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1

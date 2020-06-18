@@ -1,0 +1,13 @@
+{% include header.html %}
+<div style="margin-bottom: 64px;">
+	<h2>{{ page.title }}</h2>
+	<p>
+		<span>
+			<i class="fa fa-calendar" aria-hidden="true"></i>
+			<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
+		</span>
+	</p>
+
+	{{ content }}
+</div>
+{% include footer.html %}
