@@ -1,8 +1,8 @@
 ---
 title: Hello World
+date: 2020-06-17 18:00:00 +0200
 layout: post
 categories: [Webdev]
-image: /assets/img/logo.jpg
 description: "Hello World!"
 ---
 

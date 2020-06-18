@@ -5,25 +5,37 @@ title: Home
 
 {% for post in paginator.posts %}
 
-	<div style="margin-bottom: 64px;">
-		<h2><a href="{{ post.url  | relative_url }}">{{ post.title }}</a></h2>
-		<p>
+	<div class="row flex-nowrap justify-content-between align-items-center">
+		<div class="col-2">
+		</div>
+		<div class="col-8">
+			<div style="margin-bottom: 64px;">
+				<h2><a href="{{ post.url  | relative_url }}">{{ post.title }}</a></h2>
+				<p>
 			<span>
 				<i class="fa fa-calendar" aria-hidden="true"></i>
 				<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
 			</span>
-		</p>
+				</p>
 
-		{% if post.customexcerpt %}
-			{{post.customexcerpt | strip_html | truncatewords:50}}
-		{% else %}
-			{{ post.content | strip_html | truncatewords:50 }}
-		{% endif %}
-		
-		<div>
-			<a href="{{ post.url | relative_url }}">Continue reading...</a>
+				{% if post.description %}
+				{{post.description | strip_html}}
+				{% else %}
+				{{ post.content | strip_html | truncatewords:50 }}
+				{% endif %}
+
+				<div>
+					<a href="{{ post.url | relative_url }}">Continue reading...</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-2">
+
 		</div>
 	</div>
+
+
+
 	
 {% endfor %}
 
